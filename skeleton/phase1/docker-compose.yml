@@ -1,0 +1,17 @@
+version: '3'
+
+services: 
+  web:
+    build: .
+    # # below is a 2nd way of doing same thing, more explicitly
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: flask
+    environment:
+      FLASK_ENV: development
+    ports:
+      - "5000:5000"
+
+  redis:
+    image: redis:4.0.11-alpine
